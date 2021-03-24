@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>docs</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#request-json-library-documentation">ReQuest Json Library Documentation</a>
+<ul>
+<li><a href="#index---indice">Index - Indice</a></li>
+<li><a href="#installation-hint">Installation hint</a></li>
+<li><a href="#general-information">General Information</a></li>
+<li><a href="#change-notes">Change notes</a></li>
+<li><a href="#function-blocks-list">Function Blocks List</a></li>
+<li><a href="#rq_json_read_manager">RQ_Json_Read_Manager</a></li>
+<li><a href="#rq_json_read_bool">RQ_Json_Read_Bool</a></li>
+<li><a href="#rq_json_read_int">RQ_Json_Read_Int</a></li>
+<li><a href="#rq_json_read_real">RQ_Json_Read_Real</a></li>
+<li><a href="#rq_json_read_string">RQ_Json_Read_String</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="request-json-library-documentation">ReQuest Json Library Documentation</h1>
+<p>Documentaizione ed esempi libreria JSON C++ e FB per PLC next engeneer</p>
+<p>Documentation and example JSON library FB plus C++ for PLC Next Engeneer</p>
+<h2 id="index---indice">Index - Indice</h2>
+<ul>
+<li>Installazione / Installation hint</li>
+<li>general information (cosa è un json)</li>
+<li>change notes (copiare la tabella di esempio)</li>
+<li>function block (list)	(block, description, version, supported article, licence)</li>
+<li>function block X (input, output, in/out) per Ogni function block</li>
+<li>supported target</li>
+</ul>
+<h2 id="installation-hint">Installation hint</h2>
+<p>If you did not specify a different directory during library installation all data in the MSI file will be unpacked to:</p>
+<blockquote>
+<p>c:\Users\Public\Documents\Phoenix Contact Libraries\PLCnext Engineer<br>
+(former: PC Worx Engineer)</p>
+</blockquote>
+<p>Please copy the library data to your PLCnext Engineer (former: PC Worx Engineer) working library directory.<br>
+If you did not specify a different directory during PLCnext Engineer installation the default PLCnext Engineer working library directory is:</p>
+<blockquote>
+<p>c:\Users\Public\Documents\PLCnext Engineer\Libraries (former: PC Worx<br>
+Engineer\Libraries)</p>
+</blockquote>
+<h2 id="general-information">General Information</h2>
+<p><strong>JSON</strong>  (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate.<br>
+JSON is a text format that is completely language independent but uses conventions that are familiar to programmers.</p>
+<p>more info at <a href="https://www.json.org/">https://www.json.org/</a></p>
+<h2 id="change-notes">Change notes</h2>
+<h2 id="function-blocks-list">Function Blocks List</h2>
+
+<table>
+<thead>
+<tr>
+<th>Function block</th>
+<th>Description</th>
+<th>Version</th>
+<th>Licence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RQ_Json_Read_manager</td>
+<td>This function block manage the execution of the library</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>RQ_Json_Read_Bool</td>
+<td>This function block read a boolean value in the JSON file</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>RQ_Json_Read_Int</td>
+<td>This function block read a integer value in the JSON file</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>RQ_Json_Read_Real</td>
+<td>This function block read a real value in the JSON file</td>
+<td>1</td>
+<td>none</td>
+</tr>
+<tr>
+<td>RQ_Json_Read_String</td>
+<td>This function block read a string value in the JSON file</td>
+<td>1</td>
+<td>none</td>
+</tr>
+</tbody>
+</table><h2 id="rq_json_read_manager">RQ_Json_Read_Manager</h2>
+<h3 id="input-parameters">Input Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xRequest</td>
+<td>BOOL</td>
+<td>JSON read request</td>
+</tr>
+<tr>
+<td>sFilename</td>
+<td>STRING</td>
+<td>Absolute file path (ex. <em>/opt/plcnext/projects/RQ_Json/…</em>)</td>
+</tr>
+</tbody>
+</table><h3 id="output-parameters">Output Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xDone</td>
+<td>BOOL</td>
+<td>Request is sent and response is successfully received.</td>
+</tr>
+<tr>
+<td>iAmountKeyRequested</td>
+<td>UINT</td>
+<td>number of key requested</td>
+</tr>
+<tr>
+<td>xError</td>
+<td>BOOL</td>
+<td>if TRUE: An error has occurred. For details refer to wDiagCode</td>
+</tr>
+<tr>
+<td>xDiagCode</td>
+<td>WORD</td>
+<td>diagnosis error codes (see wDiagCode table</td>
+</tr>
+</tbody>
+</table><h3 id="inout-parameters">InOut Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>udtJsonReadManager</td>
+<td>udtJsonReadManager_type</td>
+<td>Management communication structure of the block family</td>
+</tr>
+</tbody>
+</table><h3 id="diagnosis">Diagnosis</h3>
+
+<table>
+<thead>
+<tr>
+<th>wDiagCode</th>
+<th>ERROR TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16#0000</td>
+<td><code>File not present /Read error</code></td>
+</tr>
+<tr>
+<td>16#0001</td>
+<td><code>JSON not valid</code></td>
+</tr>
+</tbody>
+</table><h2 id="rq_json_read_bool">RQ_Json_Read_Bool</h2>
+<h3 id="input-parameters-1">Input Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sKey</td>
+<td>STRING</td>
+<td>JSON key path</td>
+</tr>
+</tbody>
+</table><h3 id="output-parameters-1">Output Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xDone</td>
+<td>BOOL</td>
+<td>Request is sent and response is successfully received.</td>
+</tr>
+<tr>
+<td>xValue</td>
+<td>BOOL</td>
+<td>key value</td>
+</tr>
+<tr>
+<td>xError</td>
+<td>BOOL</td>
+<td>if TRUE: An error has occurred. For details refer to wDiagCode</td>
+</tr>
+<tr>
+<td>xDiagCode</td>
+<td>WORD</td>
+<td>diagnosis error codes (see wDiagCode table</td>
+</tr>
+</tbody>
+</table><h3 id="inout-parameters-1">InOut Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>udtJsonReadManager</td>
+<td>udtJsonReadManager_type</td>
+<td>Management communication structure of the block family</td>
+</tr>
+<tr>
+<td>arrJsonReadData</td>
+<td>arrJsonReadData_type</td>
+<td>Data communication structure of the block family</td>
+</tr>
+</tbody>
+</table><h3 id="diagnosis-1">Diagnosis</h3>
+
+<table>
+<thead>
+<tr>
+<th>wDiagCode</th>
+<th>ERROR TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16#0000</td>
+<td><code>Data type different then expected</code></td>
+</tr>
+<tr>
+<td>16#0001</td>
+<td><code>key not found</code></td>
+</tr>
+<tr>
+<td>16#0002</td>
+<td><code>reserved (datatype not valid)</code></td>
+</tr>
+</tbody>
+</table><h2 id="rq_json_read_int">RQ_Json_Read_Int</h2>
+<h3 id="input-parameters-2">Input Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sKey</td>
+<td>STRING</td>
+<td>JSON key path</td>
+</tr>
+</tbody>
+</table><h3 id="output-parameters-2">Output Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xDone</td>
+<td>BOOL</td>
+<td>Request is sent and response is successfully received.</td>
+</tr>
+<tr>
+<td>iValue</td>
+<td>INT</td>
+<td>key value</td>
+</tr>
+<tr>
+<td>xError</td>
+<td>BOOL</td>
+<td>if TRUE: An error has occurred. For details refer to wDiagCode</td>
+</tr>
+<tr>
+<td>xDiagCode</td>
+<td>WORD</td>
+<td>diagnosis error codes (see wDiagCode table</td>
+</tr>
+</tbody>
+</table><h3 id="inout-parameters-2">InOut Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>udtJsonReadManager</td>
+<td>udtJsonReadManager_type</td>
+<td>Management communication structure of the block family</td>
+</tr>
+<tr>
+<td>arrJsonReadData</td>
+<td>arrJsonReadData_type</td>
+<td>Data communication structure of the block family</td>
+</tr>
+</tbody>
+</table><h3 id="diagnosis-2">Diagnosis</h3>
+
+<table>
+<thead>
+<tr>
+<th>wDiagCode</th>
+<th>ERROR TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16#0000</td>
+<td><code>Data type different then expected</code></td>
+</tr>
+<tr>
+<td>16#0001</td>
+<td><code>key not found</code></td>
+</tr>
+<tr>
+<td>16#0002</td>
+<td><code>reserved (datatype not valid)</code></td>
+</tr>
+</tbody>
+</table><h2 id="rq_json_read_real">RQ_Json_Read_Real</h2>
+<h3 id="input-parameters-3">Input Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sKey</td>
+<td>STRING</td>
+<td>JSON key path</td>
+</tr>
+</tbody>
+</table><h3 id="output-parameters-3">Output Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xDone</td>
+<td>BOOL</td>
+<td>Request is sent and response is successfully received.</td>
+</tr>
+<tr>
+<td>rValue</td>
+<td>REAL</td>
+<td>key value</td>
+</tr>
+<tr>
+<td>xError</td>
+<td>BOOL</td>
+<td>if TRUE: An error has occurred. For details refer to wDiagCode</td>
+</tr>
+<tr>
+<td>xDiagCode</td>
+<td>WORD</td>
+<td>diagnosis error codes (see wDiagCode table</td>
+</tr>
+</tbody>
+</table><h3 id="inout-parameters-3">InOut Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>udtJsonReadManager</td>
+<td>udtJsonReadManager_type</td>
+<td>Management communication structure of the block family</td>
+</tr>
+<tr>
+<td>arrJsonReadData</td>
+<td>arrJsonReadData_type</td>
+<td>Data communication structure of the block family</td>
+</tr>
+</tbody>
+</table><h3 id="diagnosis-3">Diagnosis</h3>
+
+<table>
+<thead>
+<tr>
+<th>wDiagCode</th>
+<th>ERROR TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16#0000</td>
+<td><code>Data type different then expected</code></td>
+</tr>
+<tr>
+<td>16#0001</td>
+<td><code>key not found</code></td>
+</tr>
+<tr>
+<td>16#0002</td>
+<td><code>reserved (datatype not valid)</code></td>
+</tr>
+</tbody>
+</table><h2 id="rq_json_read_string">RQ_Json_Read_String</h2>
+<h3 id="input-parameters-4">Input Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sKey</td>
+<td>STRING</td>
+<td>JSON key path</td>
+</tr>
+</tbody>
+</table><h3 id="output-parameters-4">Output Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xDone</td>
+<td>BOOL</td>
+<td>Request is sent and response is successfully received.</td>
+</tr>
+<tr>
+<td>sValue</td>
+<td>STRING</td>
+<td>key value</td>
+</tr>
+<tr>
+<td>xError</td>
+<td>BOOL</td>
+<td>if TRUE: An error has occurred. For details refer to wDiagCode</td>
+</tr>
+<tr>
+<td>xDiagCode</td>
+<td>WORD</td>
+<td>diagnosis error codes (see wDiagCode table</td>
+</tr>
+</tbody>
+</table><h3 id="inout-parameters-4">InOut Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>TYPE</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>udtJsonReadManager</td>
+<td>udtJsonReadManager_type</td>
+<td>Management communication structure of the block family</td>
+</tr>
+<tr>
+<td>arrJsonReadData</td>
+<td>arrJsonReadData_type</td>
+<td>Data communication structure of the block family</td>
+</tr>
+</tbody>
+</table><h3 id="diagnosis-4">Diagnosis</h3>
+
+<table>
+<thead>
+<tr>
+<th>wDiagCode</th>
+<th>ERROR TYPE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16#0000</td>
+<td><code>Data type different then expected</code></td>
+</tr>
+<tr>
+<td>16#0001</td>
+<td><code>key not found</code></td>
+</tr>
+<tr>
+<td>16#0002</td>
+<td><code>reserved (datatype not valid)</code></td>
+</tr>
+</tbody>
+</table>
+    </div>
+  </div>
+</body>
+
+</html>
